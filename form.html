@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>BOOKING Form</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/form.css">
+    </head>
+    <body>
+        
+        <section class = "banner">
+            <h2> <span class="auto-input"></span></h2>
+            <div class = "card-container">
+
+
+                <div class = "card-content">
+                    <h3> BOOK YOUR PACKAGE</h3>
+                    <form method="post" action="" name="bookingform" id="bookingform">
+                        <div class = "form-row">
+                            <input type = "text" placeholder="Full Name" name="Full Name">
+                            <input type = "text" placeholder="Phone Number" name="Phone Number">
+                        </div>
+
+                        <div class = "form-row">
+                            <select name = "Packages">
+                                <option value = "PACKAGE"> Packages</option>
+                                <option value = "SINGLE"> Single</option>
+                                <option value = "DOUBLE">Double</option>
+                                <option value = "FAMILY">Family</option>
+                                <option value = "DOUBLE FAMILY">Double Family</option>
+                                <option value = "THRIBLE FAMILY">Thrible Family</option>
+
+                            </select>
+                            <input type = "text" placeholder="address" name="address">
+                        </div>
+                            <div class="form-row">
+                                  <label>
+                                    <input type="text" placeholder="MM/DD/YYYY" onfocus="(this.type='date')">
+                                  </label>
+                            </div>
+                        <div class="form-row">
+                            <input type="submit" placeholder="submit">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        <script>
+			const scriptURL ='https://script.google.com/macros/s/AKfycbyWw8oFADiE73d1HCpb4nAXZDGrH5jfIRYTzs9BlnhpTbgMEmadQlaExw9DBV5hbvKz/exec'
+			const form = document.forms['bookingform']
+
+        
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => $("#form_alerts").html("<div class='alert alert-success'>booking message sent successfully.</div>"))
+            .catch(error => $("#form_alerts").html("<div class='alert alert-danger'>booking  message not sent.</div>"))
+        })
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+        var typed = new Typed(".auto-input",{
+                strings: ["","BOOK IT NOW"],
+                typeSpeed:100,
+                backSpeed:100,
+                loop:true,
+            })
+    </script>
+    </body>
+</html>

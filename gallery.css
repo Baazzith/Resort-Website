@@ -1,0 +1,15 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+h1{
+color: darkgreen;
+text-align: center;
+}
+img{
+    float: left;
+    width: 30%;
+    border:2px solid white;
+    margin: 16px;
+}
